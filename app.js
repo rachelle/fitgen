@@ -28,6 +28,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
+/* Source in models */
+var User = require('./models/User'); 
+
+
+var User = require('./models/User');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 // auth middleware 
 app.use(require('express-session')({
     secret: 'keyboard cat', 
@@ -38,6 +48,9 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 
 app.locals.title = 'fitgen';
+
+app.listen(); 
+console.log('The magic is happening in port 3000');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -69,8 +82,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-app.listen(); 
-console.log('The magic is happening in port 3000');
 
 module.exports = app;

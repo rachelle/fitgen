@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 /* checks if the user is logged in */
 var isLoggedIn = function(req, res, next) {
-  if (!req.isAuthenticated());
+  if (!req.isAuthenticated()) {
     res.redirect('/login'); 
   }
     return next();
@@ -34,7 +34,7 @@ router.get('/logout', SessionsController.sessionsDelete);
 router.get('/auth/register',              UsersController.usersNew);
 router.post('/auth/register',             UsersController.usersCreate);
 router.get('/users',          isLoggedIn, UsersController.usersIndex);
-router.get('/users/:id',      isLoggedIn, UsersController.userShow);
+router.get('/users/:id',      isLoggedIn, UsersController.usersShow);
 router.get('/users/:id/edit', isLoggedIn, UsersController.userEdit);
 router.put('/users/:id',      isLoggedIn, UsersController.userUpdate);
 router.delete('/users/:id',   isLoggedIn, UsersController.userDelete);

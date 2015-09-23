@@ -9,7 +9,7 @@ var methodOverride  = require('method-override');
 var User = require('../models/User');
 
 /* renders a new user */
-function userNew(req, res) {
+function usersNew(req, res) {
   res.render('auth/register'); 
 }; 
 
@@ -34,8 +34,8 @@ function usersCreate(req, res) {
     status:   req.body.status, 
     image:    req.body.image, 
     avatar:   req.body.avatar, 
-    weight:   req.body.weight
-    url:      req.body.url, 
+    weight:   req.body.weight,
+    url:      req.body.url 
   }), req.body.password, function(error, user) {
     /* if (err) { console.log(err); return res.render('auth/register') */
     if (err) return res.render('auth/register', {user: user});
@@ -51,13 +51,13 @@ function usersCreate(req, res) {
 }; 
 
 /* render users profile */
-var userShow = function(req, res, next) {
+var usersShow = function(req, res, next) {
   var id = req.params.id; 
 
   User.findById({_id:id}, function(error, user) {
     if (error) res.json({message: 'Could not find user be because ' + error }); 
     res.render(
-      './users/show'), {
+      './users/show', {
         user: req.user
       }); 
   });
@@ -116,8 +116,3 @@ module.exports = {
   userDelete:   userDelete
 
 };
-}
-
-
-  }))
-}
