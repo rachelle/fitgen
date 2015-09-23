@@ -1,28 +1,26 @@
-var express = require('express');
 var path = require('path');
+var express = require('express');
 var http = require('http');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
-/* require modules for mongoose and passport */
 var mongoose = require('mongoose');
 var passport = require('passport'); 
 var LocalStrategy = require('passport-local').Strategy; 
 var routes = require('./routes/index');
-var methodOverride = require('method-override');
-
-/* source in models */
-
-var User  = require('./models/User');
-var Photo = require('./models/Photo'); 
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+/* source in models */
+var User  = require('./models/User');
+var Photo = require('./models/Photo');
 
 
 //||||||||||||||||||||||||||--
@@ -33,21 +31,22 @@ if (process.env.NODE_ENV === 'production') {
   mongoURI = process.env.MONGOLAB_URI
 };
 
-//||||||||||||||||||||||||||--
-// CONNECT TO OUR MONGO DATABASE
-//||||||||||||||||||||||||||--
-mongoose.connect(mongoURI);
+// CONNECT to our mongo database
+mongoose.connect('mongodb://localhost:27017/fitgen');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.listen(process.env.PORT || 3000);
 
+/* authorized middleware */
 app.use(require('express-session')({
     secret: 'aesthetic only',
     resave: false,
@@ -56,15 +55,18 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.locals.title = 'fitgen';
+
 app.use('/', routes);
 
 var User = require('./models/User');
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-app.locals.title = 'fitgen';
 
-
+/* start the server */
+app.listen();
+console.log('3000 is the magic port');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

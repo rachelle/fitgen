@@ -1,6 +1,8 @@
 var express        = require('express');
-var passport       = require('passport'); 
 var router         = express.Router();
+
+/* passport middleware will add authenticated users */
+var passport       = require('passport'); 
 var methodOverride = require('method-override');
 
 /* Required modules */
@@ -10,6 +12,7 @@ var User = require('../models/User');
 var SessionsController = require('../controllers/Sessions');
 var UsersController    = require('../controllers/Users');
 var PhotosController   = require('../controllers/Photos');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
@@ -26,12 +29,22 @@ var isLoggedIn = function(req, res, next) {
 
 /* renders sessions controllers */
 router.get('/login',    SessionsController.sessionsNew);
-router.post('/login', passport.authenticate(
+router.post('/login',   passport.authenticate(
     'local',
     {
       failureRedirect: '/login'
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
+
+
+/* renders photos controller */
+router.get('/photos',            isLoggedIn, PhotosController.renderPhotosIndex);
+router.get('/photos/new',       isLoggedIn, PhotosController.renderPhotosNew); 
+router.post('/photos',            isLoggedIn, PhotosController.renderPhotosCreate);
+router.get('./photos/:id/edit',  isLoggedIn, PhotosController.renderPhotosEdit);
+router.put('/photos/:id',        isLoggedIn, PhotosController.renderPhotosUpdate); 
+router.get('/photos/:id',        isLoggedIn, PhotosController.renderPhotosShow); 
+router.delete('/photos/:id',     isLoggedIn, PhotosController.deletePhoto);
 
 /* renders users controller */
 router.get('/auth/register',              UsersController.usersNew);
@@ -42,13 +55,5 @@ router.get('/users/:id/edit', isLoggedIn, UsersController.userEdit);
 router.put('/users/:id',      isLoggedIn, UsersController.userUpdate);
 router.delete('/users/:id',   isLoggedIn, UsersController.userDelete);
 
-/* renders photos controller */
-router.get('/photos',            isLoggedIn, PhotosController.renderPhotosIndex);
-router.post('/photos',           isLoggedIn, PhotosController.renderPhotosNew); 
-router.get('/photos',            isLoggedIn, PhotosController.renderPhotosCreate);
-router.get('./photos/:id/edit',  isLoggedIn, PhotosController.renderPhotosEdit);
-router.put('/photos/:id',        isLoggedIn, PhotosController.renderPhotosUpdate); 
-router.get('/photos/:id',        isLoggedIn, PhotosController.renderPhotosShow); 
-router.delete('/photos/:id',     isLoggedIn, PhotosController.deletePhoto);
 
 module.exports = router;

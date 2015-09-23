@@ -21,7 +21,7 @@ module.exports.renderPhotosIndex = function(req, res, next) {
 };
 
 /* renders a new user photo */
-module.exports.renderPhotosNew = function(req, res, next) {
+module.exports.renderPhotosNew = function(req, res) {
   var photos = Photo.all
     res.render('./photos/new', {user: req.user, photos:photos}); 
 }; 
@@ -39,7 +39,7 @@ module.exports.renderPhotosCreate = function(req, res, next) {
     if(error){ res.send('> ' + err);}
       res.redirect('/photos/' + photo.id);
   });
-});
+};
 
 /* edit a new photo */
 module.exports.renderPhotosEdit = function(req, res, next) {
@@ -57,7 +57,7 @@ module.exports.renderPhotosEdit = function(req, res, next) {
 };
 
 /* updates a photo */
-module.export.renderPhotosUpdate = function(req, res, next) {
+module.exports.renderPhotosUpdate = function(req, res, next) {
   var id = req.params.id; 
 
   Photo.findById({_id:id}, function(error, photo){
@@ -89,7 +89,7 @@ module.exports.renderPhotosShow = function(req, res, next) {
 };
 
 /* users can delete their photo */
-module.export.deletePhoto = function(req, res) {
+module.exports.deletePhoto = function(req, res) {
   var id        = req.params.id; 
   var photo_id  = req.params.id; 
 

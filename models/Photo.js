@@ -1,11 +1,11 @@
 var mongoose = require("mongoose"); 
-var Scehme   = mongoose.Schema; 
+var Schema   = mongoose.Schema; 
 
 /* require user model */
 var User = require('./User'); 
 
 /* Define Photo Schema */
-var Photo = new mongoose.Scehma({
+var Photo = new mongoose.Schema({
     url:      String, 
     image:    String, 
     caption:  String,
