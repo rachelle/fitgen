@@ -9,7 +9,7 @@ var User = require('../models/User');
 /* Required controllers */
 var SessionsController = require('../controllers/Sessions');
 var UsersController    = require('../controllers/Users');
-
+var PhotosController   = require('../controllers/Photos');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
@@ -33,7 +33,7 @@ router.post('/login', passport.authenticate(
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
 
-/* users controller */
+/* renders users controller */
 router.get('/auth/register',              UsersController.usersNew);
 router.post('/auth/register',             UsersController.usersCreate);
 router.get('/users',          isLoggedIn, UsersController.usersIndex);
@@ -42,5 +42,13 @@ router.get('/users/:id/edit', isLoggedIn, UsersController.userEdit);
 router.put('/users/:id',      isLoggedIn, UsersController.userUpdate);
 router.delete('/users/:id',   isLoggedIn, UsersController.userDelete);
 
+/* renders photos controller */
+router.get('/photos',            isLoggedIn, PhotosController.renderPhotosIndex);
+router.post('/photos',           isLoggedIn, PhotosController.renderPhotosNew); 
+router.get('/photos',            isLoggedIn, PhotosController.renderPhotosCreate);
+router.get('./photos/:id/edit',  isLoggedIn, PhotosController.renderPhotosEdit);
+router.put('/photos/:id',        isLoggedIn, PhotosController.renderPhotosUpdate); 
+router.get('/photos/:id',        isLoggedIn, PhotosController.renderPhotosShow); 
+router.delete('/photos/:id',     isLoggedIn, PhotosController.deletePhoto);
 
 module.exports = router;
