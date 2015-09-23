@@ -36,19 +36,87 @@ function usersCreate(req, res) {
     avatar:   req.body.avatar, 
     weight:   req.body.weight
     url:      req.body.url, 
-  }), req.body.password, function(err, user) {
+  }), req.body.password, function(error, user) {
     /* if (err) { console.log(err); return res.render('auth/register') */
     if (err) return res.render('auth/register', {user: user});
       passport.authenticate('local')(req, res, function() {
-      req.session.save(function(err) {
-        if (err) {
-          return next(err);
+      req.session.save(function(error) {
+        if (error) {
+          return next(error);
         }
         res.redirect('/users/' + req.user.id);
       }); 
     }); 
   }); 
 }; 
+
+/* render users profile */
+var userShow = function(req, res, next) {
+  var id = req.params.id; 
+
+  User.findById({_id:id}, function(error, user) {
+    if (error) res.json({message: 'Could not find user be because ' + error }); 
+    res.render(
+      './users/show'), {
+        user: req.user
+      }); 
+  });
+};
+
+/* users is able to edit their profile */
+var userEdit = function(req, res, next) {
+  var id = req.params.id; 
+
+  User.findById({_id:id}, function(error, user) {
+
+    if (error) res.json({message: 'Could not edit user because: ' + error}); 
+      // API
+      // res.render({user: user});
+      res.render('./users/edit', {title: "Edit User", user: user});
+    }); 
+}
+
+/* user can update their profile */
+var userUpdate = function(req, res, next) {
+  var id = req.params.id; 
+
+  User.findById({_id: id}, function(error, user) {
+    if (error) res.json({message: 'Could not find user because ' + error});
+    if (req.body.height) user.height = req.body.height; 
+    if (req.body.name)   user.name   = req.body.name; 
+    if (req.body.weight) user.weight = req.body.weight; 
+    if (req.body.status) user.status = req.body.status; 
+
+    user.save(function(error) {
+      if (error) res.json({message: 'User Succesfully update'}); 
+        res.redirect('/users/' + id); 
+    });
+  });
+};
+
+/* user has the option to delete their account */
+var userDelete = function(req, res) {
+  var id = req.params.id; 
+
+  User.findByAndRemove({_id: id}, function(error) {
+    if (error) res.send(error); 
+      res.redirect('/')
+  });
+};
+
+/* exports user module */
+module.exports = {
+
+  usersIndex:   usersIndex, 
+  usersNew:     usersNew, 
+  usersCreate:  usersCreate, 
+  usersShow:    usersShow, 
+  userEdit:     userEdit, 
+  userUpdate:   userUpdate, 
+  userDelete:   userDelete
+
+};
+}
 
 
   }))
