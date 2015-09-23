@@ -1,0 +1,175 @@
+html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  box-sizing: border-box;}
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; 
+}
+
+body {
+  margin: 0;
+}
+
+.logoname {
+  margin-left: 30px;
+}
+
+a { 
+  color: white;
+}
+
+article,
+footer,
+header,
+nav,
+section,
+summary {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+/*Navigation Section*/
+.top-navigation {
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid #DDD;
+  z-index: 9999;
+}
+
+.top-navigation > .content {
+  height: 4.375rem;
+}
+
+.top-navigation .logo {
+  height: 40px;
+}
+
+.content: {
+  padding: 0 0.938rem;
+  margin: 0 auto;
+  min-width: 37.5rem;
+  color: white;  
+}
+
+/*INTRODUCTION SECTION*/
+.introduction {
+  background-image: url("/images/girl-squat.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45.500rem;
+  overflow: auto;
+}
+
+.introduction h1, 
+.introduction h3 {
+  color: white;
+  text-align: center;
+  font-weight: 300;
+}
+
+.introduction h1 {
+  margin-top: 17.5rem;
+  font-size: 3.125rem;
+}
+
+.introduction h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+h2  {
+  color: #007D89;
+  margin-bottom: 20px;
+}
+
+.introduction .buttons {
+  color: white;
+  text-align: center;
+  margin-top: 1.563rem;
+}
+
+.introduction .half {
+  width: 49%;
+  padding: 0 0.938rem;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+/*CASES*/
+.cases {
+  background-color: #fff;
+  overflow: hidden;
+  padding-bottom: 5rem;
+}
+
+.cases .content {
+  margin-top: 7.875rem;
+  padding: none;
+  color: #1d1e21;
+  text-align: center;
+}
+
+.cases h2 {
+  font-size: 2.75rem;
+  margin: 1.625rem 0 3.125rem;
+  font-weight: 300;
+}
+
+.cases .devices > li {
+  width: 33.3333333%;
+  float:left;
+}
+
+.cases .devices h3 {
+  font-weight: 400;
+  font-size: 1.563rem;
+  margin: 2.5rem 0px 1.875rem;
+}
+
+.cases .devices p {
+  font-weight: 300;
+  font-size: 1.313rem;
+}
+
+.navlinks {
+  padding-right: 100px;
+}
+
+.logoname {
+  margin-left: 20px;
+}
