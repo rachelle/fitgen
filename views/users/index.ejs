@@ -1,1 +1,59 @@
-index.ejs
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ 
+  <title>her era</title> 
+  <link rel="stylesheet" type="text/css" href="css/ig.css">
+
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+  <script type="text/javascript" src="../js/register.js"></script>
+
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head> 
+<body>
+<!-- navbar  -->
+ <nav>
+  <div class="nav-wrapper blue-grey lightnen-1">
+    <a href="#" class="brand-logo logoname">Era</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="auth/register">Sign Up</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a class="navlinks" href="/logout">Signout</a></li>
+    </ul>
+  </div>
+</nav>  
+
+<!-- all user show page  -->
+<div class="content ">
+  <h3>Users</h3> 
+  <ul class='feed'>
+    <% users.forEach(function(user) { %>
+      <li>
+        <div class="photo-wrapper">
+          <div class="photo">
+            <img class="bg" src="<%= user.avatar %>" alt="">
+            <a href="/users/<%= user._id %>"><%= user.name %></a>
+          </div>
+          <div class="text bottom"></div>
+        </div>
+      </li>
+    <% }); %>
+    <li>
+      <div class="photo-wrapper">
+        <img class="bg" src="https://s-media-cache-ak0.pinimg.com/236x/ac/a6/02/aca602b53f3120db07b0e956bb2bcc75.jpg">
+        <div class="text"></div>
+        <div class="photo"></div>
+        <div class="text bottom">Bottom Text</div>
+      </div>
+    </li>
+  </ul>
+</div>
+  
+
+
+</body>
+</html>
