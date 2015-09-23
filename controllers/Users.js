@@ -36,13 +36,13 @@ function usersCreate(req, res) {
     avatar:   req.body.avatar, 
     weight:   req.body.weight,
     url:      req.body.url 
-  }), req.body.password, function(error, user) {
+  }), req.body.password, function(err, user) {
     /* if (err) { console.log(err); return res.render('auth/register') */
     if (err) return res.render('auth/register', {user: user});
       passport.authenticate('local')(req, res, function() {
-      req.session.save(function(error) {
-        if (error) {
-          return next(error);
+      req.session.save(function (err) {
+        if (err) {
+          return next(err);
         }
         res.redirect('/users/' + req.user.id);
       }); 
@@ -51,7 +51,7 @@ function usersCreate(req, res) {
 }; 
 
 /* render users profile */
-var usersShow = function(req, res, next) {
+var userShow = function(req, res, next) {
   var id = req.params.id; 
 
   User.findById({_id:id}, function(error, user) {
@@ -110,7 +110,7 @@ module.exports = {
   usersIndex:   usersIndex, 
   usersNew:     usersNew, 
   usersCreate:  usersCreate, 
-  usersShow:    usersShow, 
+  userShow:     userShow, 
   userEdit:     userEdit, 
   userUpdate:   userUpdate, 
   userDelete:   userDelete

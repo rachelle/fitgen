@@ -77,7 +77,6 @@ ol, ul {
 }
 
 .content: {
-  padding: 0 0.938rem;
   margin: 0 auto;
   min-width: 37.5rem;
   color: white;  
@@ -115,21 +114,6 @@ h2  {
   margin-bottom: 20px;
 }
 
-.introduction .buttons {
-  color: white;
-  text-align: center;
-  margin-top: 1.563rem;
-}
-
-.introduction .half {
-  width: 49%;
-  padding: 0 0.938rem;
-  display: inline-block;
-  vertical-align: bottom;
-  font-size: 1.125rem;
-  line-height: 1.2;
-}
-
 /*CASES*/
 .cases {
   background-color: #fff;
@@ -138,7 +122,7 @@ h2  {
 }
 
 .cases .content {
-  margin-top: 7.875rem;
+  margin-top: 6.300rem;
   padding: none;
   color: #1d1e21;
   text-align: center;
@@ -173,3 +157,4 @@ h2  {
 .logoname {
   margin-left: 20px;
 }
+

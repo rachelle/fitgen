@@ -34,7 +34,6 @@ function sessionsDelete  (req, res) {
 // EXPORT FUNCTIONS
 //||||||||||||||||||||||||||--
 module.exports = {
-  
   sessionsNew:     sessionsNew,
   sessionsCreate:  sessionsCreate,
   sessionsDelete:  sessionsDelete
