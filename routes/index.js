@@ -1,10 +1,12 @@
 var express        = require('express');
-var router         = express.Router();
 var passport       = require('passport'); 
+var router         = express.Router();
 var methodOverride = require('method-override');
 
+/* Required modules */
 var User = require('../models/User');
 
+/* Required controllers */
 var SessionsController = require('../controllers/Sessions');
 var UsersController    = require('../controllers/Users');
 
@@ -12,6 +14,7 @@ var UsersController    = require('../controllers/Users');
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
 });
+
 
 /* checks if the user is logged in */
 var isLoggedIn = function(req, res, next) {
@@ -21,14 +24,14 @@ var isLoggedIn = function(req, res, next) {
     return next();
 };
 
-/* renders sessions controller */
-router.get('/login',  SessionsController.sessionsNew);
+/* renders sessions controllers */
+router.get('/login',    SessionsController.sessionsNew);
 router.post('/login', passport.authenticate(
-    'local', 
-   { 
-    failuresRedirect: '/login' 
-   }),                SessionsController.sessionsCreate);
-router.get('/logout', SessionsController.sessionsDelete);
+    'local',
+    {
+      failureRedirect: '/login'
+    }),                SessionsController.sessionsCreate);
+router.get('/logout',  SessionsController.sessionsDelete);
 
 /* users controller */
 router.get('/auth/register',              UsersController.usersNew);

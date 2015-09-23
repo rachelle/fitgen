@@ -1,8 +1,119 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html, body { 
+  height: 100%; 
 }
 
-a {
-  color: #00B7FF;
+body {
+  background: #2D5377 url("/images/fitgirl.jpg") no-repeat center center;
+  background-size: cover;
+  font-size: 15px;
+}
+
+.cntr-outer {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.cntr-inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.wrppr {
+  display: inline-block;
+  background: #69f0ae;
+  width: 400px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 50px 0px #000000;
+  animation: fade 700ms ease 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 200;
+  color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+}
+
+.login-form {
+  padding: 20px;
+  background: #ffffff;
+  width: 400px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+button,
+label {
+  position: relative;
+  display: block;
+  border: 1px solid #CFD8E6;
+  padding: 8px;
+  margin: 0px 0px 15px 0px;
+  border-radius: 3px;
+}
+
+button,
+input {
+  font-size: 1em;
+  border: 1px solid white;
+  outline-width: 0px;
+  width: 100%;
+  color: #415770;
+}
+
+label input + .plchldr {
+  position: absolute;
+  font-size: 12px;
+  top: 10px;
+  left: 5px;
+  background: transparent;
+  padding: 3px;
+  transition: all 150ms ease;
+  color: #8FA4C4;
+  animation: plchldr 700ms ease 1.6s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+label:first-child input + .plchldr {
+  animation-delay: 1.5s;
+}
+
+label input:focus + .plchldr,
+label input.hasValue + .plchldr {
+  background: #fff;
+  transform: translateY(-21px);
+}
+
+button {
+  padding: 8px;
+  margin: 0px;
+  background: #4ECDC4;
+  color: #FFFFFF;
+  height: 40px;
+  cursor: pointer;
+  transition: all 100ms ease;
+}
+
+button:hover {
+  background: #4fa115;
+}
+
+button:active {
+  box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.2);
+}
+
+@keyframes fade {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0px); opacity: 1; }
+}
+
+@keyframes plchldr {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

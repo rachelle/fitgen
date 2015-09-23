@@ -12,12 +12,10 @@ var methodOverride = require('method-override');
 //||||||||||||||||||||||||||--
 var User    = require('../models/User');
 
-
 /* renders a new user */
 function usersNew  (req, res) {
   res.render('auth/register');
 };
-
 
 /* renders all users */
 var usersIndex = function(req, res, next){
@@ -41,7 +39,6 @@ function usersCreate (req, res) {
     image: req.body.image,
     avatar: req.body.avatar,
     weight: req.body.weight,
-    
     url:    req.body.url,
   }), req.body.password, function(err, user) {
     // if (err) { console.log(err); return res.render('auth/register', {user: user}); }
@@ -76,13 +73,6 @@ var userEdit = function(req, res, next){
   var id = req.params.id;
 
   User.findById({_id:id}, function(error, user){
-//     if(error) res.json({message: 'Could not find user because ' + error});
-//     res.render(
-//       './users/edit', {
-//         user: req.user
-//       });
-//   });
-// };
 
   if(error) res.json({message: 'Could not edit user because: ' + error});
     // API
