@@ -1,1 +1,265 @@
-new.ejs
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Era</title> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/css/landing.css">
+  <!-- script tags -->
+   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
+</script>
+ 
+  <script type="text/javascript" src="../javascripts/exercise.js"></script>
+ 
+</head> 
+<body> 
+<!-- navbar -->
+<nav>
+  <div class="nav-wrapper blue-grey lightnen-1">
+    <a href="#" class="brand-logo logoname">Era</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="auth/register">Sign Up</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a class="navlinks" href="/logout">Signout</a></li>
+    </ul>
+  </div>
+</nav> 
+
+<div class="leg-exercises"> 
+  <h2 class="center-align">Leg Day</h2>
+<form action="/exercises" method="Post" id="list-form">
+  <div class="container">
+    <ul class="collapsible center-align" data-collapsible="expandable">
+
+      <li><!-- Squats -->
+        <div class="collapsible-header">Squats</div>
+        <div class="collapsible-body">
+          <img class="materialiboxed" src="/images/selter.gif">
+          
+          <input name="description" type="checkbox" id="squats" value="squats" />
+        <label class="legs" for="squats">Squats</label>
+      </div>
+      </li>
+      <li>
+        <div class="collapsible-header ">Pile Squats</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/sumoooo.gif">
+          <br/>
+          <input type="checkbox" name="description" value="pile squat" id="pile squat"> 
+          <label class="legs" for="pile squat">Pile Squats</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Split Squats</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/split-squat.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="squat" id="split squat"> 
+          <label class="legs" for="split squat">Split Squat</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Narrow Squats</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/narrow-squats.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="narrow squats" id="narrow squats"> 
+          <label class="legs" for="narrow squats">Narrow Squats</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Rear Deadlift</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/rdl.jpg">
+          <br/>
+          <input type="checkbox" name="description" id="rear deadlift" value="rear deadlift"> 
+          <label class="legs" for="rear deadlift">rear deadlift</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Dumbell Squats</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/dumbell-squat.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="dumbell squat" id="dumbell squat"> 
+          <label class="legs" for="dumbell squat">Split Squat</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Lunges</div>
+        <div class="collapsible-body">
+        <img class="materialboxed" src="/images/lunges.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="lunges" id="lunges"> 
+          <label class="legs" for="lunges">lunges</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Curtsey Lunges</div>
+        <div class="collapsible-body">
+        <img class="materialboxed" src="/images/curt.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="curtsey lunges" id="curtsey lunges"> 
+          <label class="legs" for="curtsey lunges">curtsey lunges</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">barbell bridges</div>
+        <div class="collapsible-body">
+        <img class="materialboxed" src="/images/chair-barbell.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="barbell bridges" id="barbell bridges"> 
+          <label class="legs" for="barbell bridges">curtsey lunges</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">one legged deadlift</div>
+        <div class="collapsible-body">
+        <img class="materialboxed" src="/images/leg.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="one legged deadlift" id="one legged deadlift"> 
+          <label class="legs" for="one legged deadlift">one legged deadlift</label>
+        </div>
+      </li>
+
+
+
+      <button class="list" type="submit" name="Submit" class="action-button" value="Submit">Submit</button>
+    </ul>
+  </div>
+</form>
+
+<div class="legs">
+
+</div>
+
+<div class="leg-exercises"> 
+  <h2 class="center-align">Abs</h2>
+<form action="/exercises" method="Post" id="list-form">
+  <div class="container">
+    <ul class="collapsible center-align" data-collapsible="expandable">
+
+      <li><!-- Squats -->
+        <div class="collapsible-header"><h6>Scissor crunches</h6></div>
+        <div class="collapsible-body">
+          <img class="materialiboxed" src="/images/scissor.jpeg">
+          <br/>
+          
+          <input name="description" type="checkbox" id="scissor crunches" value="scissor crunces" />
+        <label class="legs" for="scissor crunches">Scissor Crunches</label>
+      </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Knee Crunches</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/knee.jpeg">
+          <br/>
+          <input type="checkbox" name="description" value="knee crunches" id="knee crunches"> 
+          <label class="legs" for="knee crunches">Knee Crunches</label>
+        </div>
+      </li>
+      <li> <!-- Jump Squat -->
+        <div class="collapsible-header">Reverse Crunches</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/rev.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="reverse crunches" id="reverse crunches"> 
+          <label class="legs" for="reverse crunches">Reverse Crunches</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Butterfly Crunches</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/butterfly.jpeg">
+          <br/>
+          <input type="checkbox" name="description" value="Butterfly crunches" id="Butterfly Crunches"> 
+          <label class="legs" for="Butterfly Crunches">Butterfly Crunches</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Planks</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/plank.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="planks" id="planks"> 
+          <label class="legs" for="planks">Planks</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Russian Twist</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/russian-twist.jpg">
+          <br/>
+          <input type="checkbox" name="description" id="russian twist" value="russian twist"> 
+          <label class="legs" for="russian twist">russian twist</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Butterfly Kicks</div>
+        <div class="collapsible-body">
+          <img class="materialboxed" src="/images/butterfly-kicks.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="butterfly kicks" id="butterfly kicks"> 
+          <label class="legs" for="butterfly kicks">butterfly kicks</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Basic Crunches</div>
+        <div class="collapsible-body">
+        <img class="materialboxed" src="/images/basic.jpeg">
+          <br/>
+          <input type="checkbox" name="description" value="basic crunch" id="basic crunch"> 
+          <label class="legs" for="basic crunch">Basic Crunch</label>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><h6>Weighted Abs</h6></div>
+        <div class="collapsible-body">
+        <img class="materialboxed" src="/images/weighted-abs.jpg">
+          <br/>
+          <input type="checkbox" name="description" value="weighted abs" id="weighted abs"> 
+          <label class="legs" for="weighted abs">Weighted Abs</label>
+        </div>
+      </li>
+      
+    <button class="list" type="submit" name="Submit" class="action-button" value="Submit">Submit</button>
+    </ul>
+  </div>
+</form>
+
+
+<!-- footer content -->
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Era © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+  </div>
+
+</footer>
+</body>
+</html>
