@@ -22,6 +22,7 @@ app.set('view engine', 'ejs');
 var User      = require('./models/User');
 var Photo     = require('./models/Photo');
 var Exercise  = require('./models/Exercise');
+var Meal      = require('./models/Meal');
 
 //||||||||||||||||||||||||||--
 // CREATE MONGO DB

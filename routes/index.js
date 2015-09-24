@@ -9,10 +9,11 @@ var methodOverride = require('method-override');
 var User = require('../models/User');
 
 /* Required controllers */
-var SessionsController = require('../controllers/Sessions');
-var UsersController    = require('../controllers/Users');
-var PhotosController   = require('../controllers/Photos');
+var SessionsController     = require('../controllers/Sessions');
+var UsersController        = require('../controllers/Users');
+var PhotosController       = require('../controllers/Photos');
 var ExercisesController    = require('../controllers/Exercises');
+var MealController         = require('../controllers/Meals');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -36,6 +37,15 @@ router.post('/login',   passport.authenticate(
       failureRedirect: '/login'
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
+
+/* meals controller */
+router.get('/meals',          isLoggedIn, MealController.renderMealsIndex); 
+router.get('/meals/new',      isLoggedIn, MealController.renderMealsNew); 
+router.post('/meals',         isLoggedIn, MealController.renderMealsCreate); 
+router.get('/meals/:id/edit', isLoggedIn, MealController.renderMealsEdit); 
+router.put('/meals/:id',      isLoggedIn, MealController.renderMealsUpdate); 
+router.get('/meals/:id',      isLoggedIn, MealController.renderMealsShow); 
+router.delete('/meals/:id',   isLoggedIn, MealController.deleteMeal);
 
 /* exercises controller */
 router.get('/exercises',          isLoggedIn, ExercisesController.renderExercisesIndex);
