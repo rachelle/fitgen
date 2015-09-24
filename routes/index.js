@@ -12,7 +12,7 @@ var User = require('../models/User');
 var SessionsController = require('../controllers/Sessions');
 var UsersController    = require('../controllers/Users');
 var PhotosController   = require('../controllers/Photos');
-var PlansController    = require('../controllers/Plans');
+var ExercisesController    = require('../controllers/Plans');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,23 +37,23 @@ router.post('/login',   passport.authenticate(
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
 
+/* exercises controller */
+router.get('/exercises',          isLoggedIn, ExercisesController.renderExercisesIndex);
+router.get('/exercises/new',      isLoggedIn, ExercisesController.renderExercisesNew);
+router.post('/exercises',         isLoggedIn, ExercisesController.renderExercisesCreate); 
+router.get('/exercises/:id/edit', isLoggedIn, ExercisesController.renderExercisesEdit);
+router.put('/exercises/:id',      isLoggedIn, ExercisesController.renderExercisesUpdate); 
+router.get('/exercises/:id',      isLoggedIn, ExercisesController.renderExercisesShow);
+router.delete('/exercises/:id',   isLoggedIn, ExercisesController.deleteExercise);
+
 /* renders photos controller */
 router.get('/photos',            isLoggedIn, PhotosController.renderPhotosIndex);
 router.get('/photos/new',        isLoggedIn, PhotosController.renderPhotosNew); 
 router.post('/photos',           isLoggedIn, PhotosController.renderPhotosCreate);
-router.get('./photos/:id/edit',  isLoggedIn, PhotosController.renderPhotosEdit);
+router.get('/photos/:id/edit',   isLoggedIn, PhotosController.renderPhotosEdit);
 router.put('/photos/:id',        isLoggedIn, PhotosController.renderPhotosUpdate); 
 router.get('/photos/:id',        isLoggedIn, PhotosController.renderPhotosShow); 
 router.delete('/photos/:id',     isLoggedIn, PhotosController.deletePhoto);
-
-/* renders photos controller */
-router.get('/plans',           isLoggedIn, PlansController.renderPlansIndex);
-router.get('/plans/new',       isLoggedIn, PlansController.renderPlansNew); 
-router.post('/plans',          isLoggedIn, PlansController.renderPlansCreate);
-router.get('./plans/:id/edit', isLoggedIn, PlansController.renderPlansEdit);
-router.put('/plans/:id',       isLoggedIn, PlansController.renderPlansUpdate); 
-router.get('/plans/:id',       isLoggedIn, PlansController.renderPlansShow); 
-router.delete('/plans/:id',    isLoggedIn, PlansController.deletePlan);
 
 /* renders users controller */
 router.get('/auth/register',              UsersController.usersNew);

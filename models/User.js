@@ -4,8 +4,8 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 
 var Photo = require('./Photo');
+var Plan  = require('./Exercise');
 var User  = require('./User');
-var Plan  = require('./Plan');
 
 /* Define Plan Schema */
 var User = new mongoose.Schema({
@@ -25,9 +25,9 @@ var User = new mongoose.Schema({
       ref: 'Photo'
   }],
 
-  plans: [{
+  exercises: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Plan'
+      ref: 'Exercise'
   }]
 
 });

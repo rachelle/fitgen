@@ -19,9 +19,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 /* source in models */
-var User  = require('./models/User');
-var Photo = require('./models/Photo');
-var Plan  = require('./models/Plan');
+var User      = require('./models/User');
+var Photo     = require('./models/Photo');
+var Exercise  = require('./models/Exercise');
 
 //||||||||||||||||||||||||||--
 // CREATE MONGO DB
