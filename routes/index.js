@@ -13,7 +13,7 @@ var SessionsController     = require('../controllers/Sessions');
 var UsersController        = require('../controllers/Users');
 var PhotosController       = require('../controllers/Photos');
 var ExercisesController    = require('../controllers/Exercises');
-var MealController         = require('../controllers/Meals');
+var MealsController         = require('../controllers/Meals');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

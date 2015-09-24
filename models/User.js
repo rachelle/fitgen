@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
-
-var Photo = require('./Photo');
+/* required models for user */
+var Photo     = require('./Photo');
 var Exercise  = require('./Exercise');
-var User  = require('./User');
+var User      = require('./User');
+var Meal      = require('./Meal');
 
 /* Define Plan Schema */
 var User = new mongoose.Schema({
