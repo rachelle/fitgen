@@ -17,7 +17,12 @@ var User = new mongoose.Schema({
   avatar:   String, 
   height:   Number,
   image:    String, 
-  status:   String
+  status:   String,
+
+  photos: [{
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'Photo'
+  }]
 
 });
 
