@@ -12,7 +12,7 @@ var User = require('../models/User');
 var SessionsController = require('../controllers/Sessions');
 var UsersController    = require('../controllers/Users');
 var PhotosController   = require('../controllers/Photos');
-var ExercisesController    = require('../controllers/Plans');
+var ExercisesController    = require('../controllers/Exercises');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

@@ -4,7 +4,7 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 
 var Photo = require('./Photo');
-var Plan  = require('./Exercise');
+var Exercise  = require('./Exercise');
 var User  = require('./User');
 
 /* Define Plan Schema */
