@@ -182,3 +182,31 @@ h2  {
     font-size: 23px;
     color: white;
 }
+
+.banner {
+  background:url("/images/sweat.jpg");
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.photo-content {
+  color: white;
+  border: 0 none;
+  margin-top: 100px;
+  margin-left: 420px;
+  border-radius: 3px;
+  padding: 20px 20px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  width: 600px;
+}
+
+.action-button {
+  background-color: #71C924;
+  width: 160px;
+  height: 40px;
+}
+
