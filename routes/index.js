@@ -39,8 +39,8 @@ router.get('/logout',  SessionsController.sessionsDelete);
 
 /* renders photos controller */
 router.get('/photos',            isLoggedIn, PhotosController.renderPhotosIndex);
-router.get('/photos/new',       isLoggedIn, PhotosController.renderPhotosNew); 
-router.post('/photos',            isLoggedIn, PhotosController.renderPhotosCreate);
+router.get('/photos/new',        isLoggedIn, PhotosController.renderPhotosNew); 
+router.post('/photos',           isLoggedIn, PhotosController.renderPhotosCreate);
 router.get('./photos/:id/edit',  isLoggedIn, PhotosController.renderPhotosEdit);
 router.put('/photos/:id',        isLoggedIn, PhotosController.renderPhotosUpdate); 
 router.get('/photos/:id',        isLoggedIn, PhotosController.renderPhotosShow); 
@@ -55,5 +55,12 @@ router.get('/users/:id/edit', isLoggedIn, UsersController.userEdit);
 router.put('/users/:id',      isLoggedIn, UsersController.userUpdate);
 router.delete('/users/:id',   isLoggedIn, UsersController.userDelete);
 
+router.get('/plans',           isLoggedIn, PlansController.renderPlansIndex);
+router.get('/plans/new',       isLoggedIn, PlansController.renderPlansNew); 
+router.post('/plans',          isLoggedIn, PlansController.renderPlansCreate);
+router.get('./plans/:id/edit', isLoggedIn, PlansController.renderPlansEdit);
+router.put('/plans/:id',       isLoggedIn, PlansController.renderPlansUpdate); 
+router.get('/plans/:id',       isLoggedIn, PlansController.renderPlansShow); 
+router.delete('/plans/:id',  
 
 module.exports = router;
