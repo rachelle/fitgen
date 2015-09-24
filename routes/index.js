@@ -13,7 +13,7 @@ var SessionsController     = require('../controllers/Sessions');
 var UsersController        = require('../controllers/Users');
 var PhotosController       = require('../controllers/Photos');
 var ExercisesController    = require('../controllers/Exercises');
-var MealsController         = require('../controllers/Meals');
+var MealsController        = require('../controllers/Meals');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -39,13 +39,13 @@ router.post('/login',   passport.authenticate(
 router.get('/logout',  SessionsController.sessionsDelete);
 
 /* renders meal controller */
-router.get('/meals',          isLoggedIn, MealController.renderMealsIndex); 
-router.get('/meals/new',      isLoggedIn, MealController.renderMealsNew); 
-router.post('/meals',         isLoggedIn, MealController.renderMealsCreate); 
-router.get('/meals/:id/edit', isLoggedIn, MealController.renderMealsEdit); 
-router.put('/meals/:id',      isLoggedIn, MealController.renderMealsUpdate); 
-router.get('/meals/:id',      isLoggedIn, MealController.renderMealsShow); 
-router.delete('/meals/:id',   isLoggedIn, MealController.deleteMeal);
+router.get('/meals',          isLoggedIn, MealsController.renderMealsIndex); 
+router.get('/meals/new',      isLoggedIn, MealsController.renderMealsNew); 
+router.post('/meals',         isLoggedIn, MealsController.renderMealsCreate); 
+router.get('/meals/:id/edit', isLoggedIn, MealsController.renderMealsEdit); 
+router.put('/meals/:id',      isLoggedIn, MealsController.renderMealsUpdate); 
+router.get('/meals/:id',      isLoggedIn, MealsController.renderMealsShow); 
+router.delete('/meals/:id',   isLoggedIn, MealsController.deleteMeal);
 
 /* renders exercise controller */
 router.get('/exercises',          isLoggedIn, ExercisesController.renderExercisesIndex);
