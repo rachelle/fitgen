@@ -12,6 +12,7 @@ var User = require('../models/User');
 var SessionsController = require('../controllers/Sessions');
 var UsersController    = require('../controllers/Users');
 var PhotosController   = require('../controllers/Photos');
+var PlansController    = require('../controllers/Plans');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -36,7 +37,6 @@ router.post('/login',   passport.authenticate(
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
 
-
 /* renders photos controller */
 router.get('/photos',            isLoggedIn, PhotosController.renderPhotosIndex);
 router.get('/photos/new',        isLoggedIn, PhotosController.renderPhotosNew); 
@@ -45,6 +45,15 @@ router.get('./photos/:id/edit',  isLoggedIn, PhotosController.renderPhotosEdit);
 router.put('/photos/:id',        isLoggedIn, PhotosController.renderPhotosUpdate); 
 router.get('/photos/:id',        isLoggedIn, PhotosController.renderPhotosShow); 
 router.delete('/photos/:id',     isLoggedIn, PhotosController.deletePhoto);
+
+/* renders photos controller */
+router.get('/plans',           isLoggedIn, PlansController.renderPlansIndex);
+router.get('/plans/new',       isLoggedIn, PlansController.renderPlansNew); 
+router.post('/plans',          isLoggedIn, PlansController.renderPlansCreate);
+router.get('./plans/:id/edit', isLoggedIn, PlansController.renderPlansEdit);
+router.put('/plans/:id',       isLoggedIn, PlansController.renderPlansUpdate); 
+router.get('/plans/:id',       isLoggedIn, PlansController.renderPlansShow); 
+router.delete('/plans/:id',    isLoggedIn, PlansController.deletePlan);
 
 /* renders users controller */
 router.get('/auth/register',              UsersController.usersNew);
@@ -55,12 +64,5 @@ router.get('/users/:id/edit', isLoggedIn, UsersController.userEdit);
 router.put('/users/:id',      isLoggedIn, UsersController.userUpdate);
 router.delete('/users/:id',   isLoggedIn, UsersController.userDelete);
 
-router.get('/plans',           isLoggedIn, PlansController.renderPlansIndex);
-router.get('/plans/new',       isLoggedIn, PlansController.renderPlansNew); 
-router.post('/plans',          isLoggedIn, PlansController.renderPlansCreate);
-router.get('./plans/:id/edit', isLoggedIn, PlansController.renderPlansEdit);
-router.put('/plans/:id',       isLoggedIn, PlansController.renderPlansUpdate); 
-router.get('/plans/:id',       isLoggedIn, PlansController.renderPlansShow); 
-router.delete('/plans/:id',  
 
 module.exports = router;

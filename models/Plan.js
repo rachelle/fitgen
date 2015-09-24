@@ -1,8 +1,9 @@
-var mongoose = require('mongoose'); 
+var mongoose = require("mongoose"); 
 var Schema   = mongoose.Schema; 
 
 /* require user model */
 var User = require('./User');
+var Plan = require('./Plan');
 
 /* Define Plan Schema */
 var Plan = new mongoose.Schema({

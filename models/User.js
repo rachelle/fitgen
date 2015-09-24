@@ -22,6 +22,11 @@ var User = new mongoose.Schema({
   photos: [{
       type: mongoose.Schema.Types.ObjectId, 
       ref: 'Photo'
+  }],
+
+  plans: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Plan'
   }]
 
 });
