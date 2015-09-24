@@ -17,17 +17,18 @@
   <script type="text/javascript" src="../javascripts/exercise.js"></script>
 </head> 
 <body> 
-<!-- navbar -->
+<!-- navbar content -->
 <nav>
   <div class="nav-wrapper blue-grey lightnen-1">
     <a href="#" class="brand-logo logoname">Era</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="auth/register">Sign Up</a></li>
       <li><a href="/login">Login</a></li>
+      <li><a class="prog-links" href="/users/<%= user.id %>">Home</a></li>
       <li><a class="navlinks" href="/logout">Signout</a></li>
     </ul>
   </div>
-</nav> 
+</nav> <!--  end of navbar -->
+
 <!-- leg exercises -->
 <div class="leg-exercises"> 
   <h2 class="center-align">Leg Day</h2>

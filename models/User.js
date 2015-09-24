@@ -28,6 +28,11 @@ var User = new mongoose.Schema({
   exercises: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Exercise'
+  }], 
+
+  meals: [{
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Meal'
   }]
 
 });
