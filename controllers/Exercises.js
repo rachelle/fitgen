@@ -38,7 +38,7 @@ module.exports.renderExercisesCreate = function(req, res, next){
   }); 
   console.log(req.body); 
   exercise.save(function(error){
-    if(error){res.send('> ' + err);}
+    if(error){res.send('> ' + error);}
       req.user.exercises.push(exercise); 
       req.user.save(); 
       res.redirect("./exercises/" + exercise.id);

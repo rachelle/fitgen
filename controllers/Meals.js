@@ -22,7 +22,7 @@ module.exports.renderMealsIndex = function(req, rex, next) {
 
 /* renders a new meal for user */
 module.exports.renderMealsNew = function(req, res) {
-  var meal = Meal.all
+  var meals = Meal.all
     res.render('./meals/new', {user: req.user, meals:meals});
 };
 
@@ -38,12 +38,14 @@ module.exports.renderMealsCreate = function(req, res, next) {
     snack_name: req.body.snack_name, 
     snack_cals: req.body.snack_cals, 
     snack_protein: req.body.snack_protein,
-    user_id: req.user.id
+    user_id: req.user
   });
   console.log(req.body); 
   meal.save(function(error){
     if(error){ res.send('> ' + error);}
-      res.redirect('/meals/' + meal.id); 
+      req.user.meals.push(exercise); 
+      req.user.save();
+      res.redirect('./meals/' + meal.id); 
   });
 };
 
@@ -55,11 +57,12 @@ module.exports.renderMealsEdit = function(req, res, next) {
   Meal.findById({_id:id}, function(error, meal) {
     console.log('meal', meal); 
     if(error) res.send(error); 
-      res.render('./meals/edit', {
-        meal: meal, 
-        user: req.user
-    });
-  });
+      res.render(
+        './meals/edit', {
+          meal: meal, 
+          user: req.user
+      });
+  })
 };
 
 /* updates a meal */
@@ -90,7 +93,6 @@ module.exports.renderMealsShow = function(req, res, next) {
   var id = req.params.id; 
 
   Meal.findById(_id: id}, function (error, meal) {
-    console.log('meal', meal); 
     if (error) res.send(error); 
       res.render(
         './meals/show', {
@@ -106,7 +108,7 @@ module.exports.deleteMeal = function(req, res) {
 
   Meal.findByIdAndRemove({_id:id}, function (error) {
     if (error) res.send(error); 
-      res.redirect('./meals')
+      res.redirect('/meals')
   }); 
 };
 
