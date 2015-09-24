@@ -38,13 +38,13 @@ router.post('/login',   passport.authenticate(
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
 
-/* renders meal controller */
-router.get('/meals',          isLoggedIn, MealsController.renderMealsIndex); 
-router.get('/meals/new',      isLoggedIn, MealsController.renderMealsNew); 
+/* renders meals controller */
+router.get('/meals',          isLoggedIn, MealsController.renderMealsIndex);
+router.get('/meals/new',      isLoggedIn, MealsController.renderMealsNew);
 router.post('/meals',         isLoggedIn, MealsController.renderMealsCreate); 
-router.get('/meals/:id/edit', isLoggedIn, MealsController.renderMealsEdit); 
+router.get('/meals/:id/edit', isLoggedIn, MealsController.renderMealsEdit);
 router.put('/meals/:id',      isLoggedIn, MealsController.renderMealsUpdate); 
-router.get('/meals/:id',      isLoggedIn, MealsController.renderMealsShow); 
+router.get('/meals/:id',      isLoggedIn, MealsController.renderMealsShow);
 router.delete('/meals/:id',   isLoggedIn, MealsController.deleteMeal);
 
 /* renders exercise controller */

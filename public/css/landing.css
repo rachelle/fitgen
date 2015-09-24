@@ -233,4 +233,20 @@ h2  {
   text-align: center;
 }
 
+.meal-content {
+  margin-top: 100px;
+}
+
+.meal-button {
+  background-color: #71C924;
+  width: 160px;
+  height: 40px;
+  margin-top: 30px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.navTxtBtm{
+  background-color: #263238;
+}
 

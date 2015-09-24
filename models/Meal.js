@@ -18,8 +18,8 @@ var Meal = new mongoose.Schema({
     snack_cals:     String, 
     snack_protein:  String, 
     user: {
-    type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User'
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'User'
     } 
 });
 
