@@ -38,7 +38,7 @@ router.post('/login',   passport.authenticate(
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
 
-/* meals controller */
+/* renders meal controller */
 router.get('/meals',          isLoggedIn, MealController.renderMealsIndex); 
 router.get('/meals/new',      isLoggedIn, MealController.renderMealsNew); 
 router.post('/meals',         isLoggedIn, MealController.renderMealsCreate); 
@@ -47,7 +47,7 @@ router.put('/meals/:id',      isLoggedIn, MealController.renderMealsUpdate);
 router.get('/meals/:id',      isLoggedIn, MealController.renderMealsShow); 
 router.delete('/meals/:id',   isLoggedIn, MealController.deleteMeal);
 
-/* exercises controller */
+/* renders exercise controller */
 router.get('/exercises',          isLoggedIn, ExercisesController.renderExercisesIndex);
 router.get('/exercises/new',      isLoggedIn, ExercisesController.renderExercisesNew);
 router.post('/exercises',         isLoggedIn, ExercisesController.renderExercisesCreate); 
@@ -65,7 +65,7 @@ router.put('/photos/:id',        isLoggedIn, PhotosController.renderPhotosUpdate
 router.get('/photos/:id',        isLoggedIn, PhotosController.renderPhotosShow); 
 router.delete('/photos/:id',     isLoggedIn, PhotosController.deletePhoto);
 
-/* renders users controller */
+/* renders user controller */
 router.get('/auth/register',              UsersController.usersNew);
 router.post('/auth/register',             UsersController.usersCreate);
 router.get('/users',          isLoggedIn, UsersController.usersIndex);

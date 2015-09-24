@@ -5,7 +5,7 @@ var mongoose  = require('mongoose');
 var Photo = require('../models/Photo'); 
 var User  = require('../models/User'); 
 
-/* required express router */
+/* require express router */
 var router = express.Router(); 
 
 /* gets all users photos */
@@ -36,7 +36,7 @@ module.exports.renderPhotosCreate = function(req, res, next) {
   }); 
   console.log(req.body); 
   photo.save(function(error){
-    if(error){ res.send('> ' + err);}
+    if(error){ res.send('> ' + error);}
       res.redirect('/photos/' + photo.id);
   });
 };
