@@ -1,1 +1,26 @@
-show.ejs
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Era</title> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/edit.css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head> 
+<body>
+<!-- Users gallery of progress photos -->
+<div class="user-container">
+  <div class="user-feed">
+    <img class="activator" style="width:400px; height: 400px" src="<%= photo.image %>"> 
+    <h5><%= photo.caption %></h5>
+    <button><a class="user-button" href="/photos/<%= photo._id %>/edit">Edit Photo</a></button>
+  </div>
+</div>
+
+
+</body>
+</html>
