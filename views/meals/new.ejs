@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="/css/landing.css">
 </head> 
 <body> 
-<!-- navbar -->
+<!-- navbar content -->
 <nav>
   <div class="nav-wrapper blue-grey lightnen-1">
     <a href="#" class="brand-logo logoname">Era</a>
@@ -22,22 +22,31 @@
       <li><a class="navlinks" href="/logout">Signout</a></li>
     </ul>
   </div>
-</nav> 
-<!-- photo form content -->
-<div class="banner"> 
-  <div class="photo-content center-align">
-  <h4>Post New Photo</h4>
-    <div class="row">
-      <div class="col s12"> 
-        <form action="/photos" method="post">
-          <input type="text" placeholder="caption" name="caption"/>
-          <input type="text" placeholder="progress url" name="image" class="file" type="text"/>
-          <button type="submit" name="submit" class="action-button" value="submit">Submit</button>
-        </form>
-      </div>
-    </div>
+</nav> <!--  end of navbar -->
+
+<!-- meal logger -->
+<div class="row">
+  <div class="col s12"> 
+    <form action="/meals" method="post">
+      <!-- meal logger -->
+      <input type="text" placeholder="meal name" name="meal_name"/>
+      <input type="text" placeholder="meal calories" name="meal_cals"/> 
+      <input type="text" name="meal_protein" placeholder="meal protein"/>
+      <!-- drink logger -->
+      <input type="text" placeholder="drink name" name="drink_name" class="file" type="text"/>
+      <input type="text" placeholder="drink calories" name="drink_cals"/>
+      <input type="text" placeholder="drink protein" name="drink_protein"/>
+      <!-- snack logger -->
+      <input type="text" name="snack_name" placeholder="snack name"/>
+      <input type="text" name="snack_cals" placeholder="snack calorires"/>
+      <input type="text" name="snack_protein" placeholder="snack protein"> 
+      
+      <button type="submit" name="submit" class="action-button" value="submit">Submit</button>
+    </form> <!-- end of form for meal logger -->
   </div>
 </div>
+ 
+
 
 </body>
 </html>
