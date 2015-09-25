@@ -49,6 +49,7 @@
     <li id="followers"> 
       <a href="/meals/new">Log Meal</a> 
     </li> 
+    <li id="followers">
       <a href="/exercises/new">Create plan</a> 
     </li>
   </ul>
@@ -56,10 +57,12 @@
 
 <!-- users stats -->
 <div class="user-status center-align"> 
-  <h4>Progress Photos</h4>
-  <h5>Weight: <%= user.weight %></h5>
-  <h5>Height: <%= user.height %></h5>
-  <h5>Status: <%= user.status %></h5>
+<ul class="collection with-header">
+  <li class="collection-header"><h4>User Status</h4></li>
+  <li class="collection-item"><h6>Weight: <%= user.weight %></h6></li>
+  <li class="collection-item"><h6>Height: <%= user.height %></h6></li>
+  <li class="collection-item"><h6>Status: <%= user.status %></h6></li>
+</ul>
 </div>
 
 

@@ -264,3 +264,18 @@ h2  {
   color: white;
   height: 40px;
 }
+
+#followers {
+  margin-left: 220px;
+}
+
+.user-status {
+  width: 500px;
+  margin-left: 480px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.user-stats {
+  margin-top: 30px;
+}

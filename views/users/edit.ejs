@@ -29,26 +29,28 @@
   <h3 class="center-align">Edit Profile</h3>
   <!-- edit user form -->
   <div id="login">
-    <form action="/users/<%= user._id %>_method=PUT" method="post">
+    <form action="/users/<%= user._id %>?_method=PUT" method="post">
       <input type="text" placeholder="email" name="email" />
       <br/>
       <input type="text" placeholder="profile url"  name="avatar"/>
       <br/>
       <input type="text" placeholder="username" name="username"/>
       <br/>
+      <input type="text" placeholder="height" name="height"/>
+      <input type="text" placeholder="weight" name="weight"/>
       <label class="grey lighten-2"></label>
       <select name="status" class="browser-default status-option ">
         <option name="status" value="status" disabled selected>select fitness status</option>
-        <option name='status'value="1">bulking</option>
-        <option name="status" value="2">maintaing</option>
-        <option name="status" value="2">toning</option>
-        <option name="status" value="2">muscle gaining</option>
-        <option name="status" value="3">shredding</option>
+        <option name='status'value="bulking">bulking</option>
+        <option name="status" value="maintaing">maintaing</option>
+        <option name="status" value="toning">toning</option>
+        <option name="status" value="muscle gaining">muscle gaining</option>
+        <option name="status" value="shredding">shredding</option>
       </select>
       <br/>
       <input type="text" placeholder="password" name="password"/>
       <div class="center-align">
-        <input class="reg" type="submit" value="Save Changes"/ >
+        <input class="reg" type="submit" value="submit"/ >
       </div>
     </form>
   </div>
