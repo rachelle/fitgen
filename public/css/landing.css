@@ -212,8 +212,8 @@ h2  {
 
 .user-button {
   color: white;  
-  font-weight: 100;
-  font-size: 1.1em;
+  font-weight: 60;
+  font-size: 15px;
   font-family: ‘Arial Narrow’, sans-serif;
   text-shadow: 0 0 0.063em #7a7a7a;
 }
@@ -248,5 +248,9 @@ h2  {
 
 .navTxtBtm{
   background-color: #263238;
+}
+
+.user-feed {
+  margin-top: 30px;
 }
 

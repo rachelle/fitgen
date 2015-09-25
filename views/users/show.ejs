@@ -26,7 +26,6 @@
     </ul>
   </div>
 </nav> 
-
 <!-- users nav-banner  -->
 <div class="col-lg-6 col-sm-6 center-align">
   <div id="pagewrap">
@@ -45,18 +44,23 @@
       <a href="/photos/new">Add photo</a>
     </li>
     <li id="followers">
-      <a href='/users/:id/edit'>Edit profile</a>
+      <a href='/users/<%= user._id %>/edit'>Edit profile</a>
     </li>
     <li id="followers"> 
       <a href="/meals/new">Log Meal</a> 
     </li> 
       <a href="/exercises/new">Create plan</a> 
     </li>
-
-
-   </ul>
+  </ul>
 </nav>
-<!-- users progress photos -->
+
+<!-- users stats -->
+<div class="user-status center-align"> 
+  <h4>Progress Photos</h4>
+  <h5>Weight: <%= user.weight %></h5>
+  <h5>Height: <%= user.height %></h5>
+  <h5>Status: <%= user.status %></h5>
+</div>
 
 
 <!-- footer content -->
@@ -64,8 +68,8 @@
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <h5 class="white-text">FitGeneration</h5>
+        <p class="grey-text text-lighten-4">Improve all aspects in your life.</p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>

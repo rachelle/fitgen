@@ -29,16 +29,18 @@
 <div class="content ">
   <ul class='feed'>
     <% photos.forEach(function(photo) { %>
-    <li class="user-links">
-      <div class="photo-wrapper">
-      <div class="text"><%= photo.caption %></div>
-        <div class="photo">
-          <img class="bg" src="<%= photo.image %>" alt="">
-            <a href="/photos/<%= photo._id %>"></a>
+      <li class="user-links">
+        <div class="photo-wrapper">
+          <div class="text">
+            <%= photo.caption %>
+          </div>
+          <div class="photo">
+            <a href="/photos/<%= photo._id %>"><img class="bg" src="<%= photo.image %>" alt=""></a>
+          </div>
         </div>
-      </div>
-    </li>
-  <% }); %>
+      </li>
+    <% }); %>
+  </ul>
 </div>
 
 
