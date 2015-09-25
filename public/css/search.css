@@ -3,6 +3,7 @@ body {
   margin: 0 auto;
   text-align:center;
 }
+
 .content {
   margin: 0 auto;
   padding: 5px;
@@ -19,7 +20,7 @@ body {
 ul {
   margin: 0;
   display: block;
-}
+} 
 
 ul:after {
   clear: both;
@@ -39,7 +40,9 @@ ul:after {
   margin-left: 20px;
   width: 300px;
   padding: 7px 0 25px 0;
+  cursor: pointer;
 }
+
 .photo-wrapper {
   position: relative;
   text-align:center;
@@ -56,20 +59,22 @@ ul:after {
   pointer-events: none;
 }
 
-.user-links:hover .text {
+li:hover .text {
   opacity: 1;
 }
+
 .photo {
   width: 400px;
   height: 160px;
   height: 300px;
-
 }
+
 .bottom {
   position: absolute;
   bottom: -25px;
   width: 100%;
 }
+
 .bg {
   position: absolute;
   top: 25px;
@@ -80,6 +85,11 @@ ul:after {
   padding: 5px;
   box-shadow: 0 0 4px 1px rgba(0,0,0,.25);
   transition: all 0.15s ease-out 0.1s;
+}
+
+li:hover a.bg {
+  margin: -28px -12px;
+  padding: 28px 12px;
 }
 
 .clear-fix {
@@ -107,3 +117,4 @@ ul:after {
 .prog-text{
   color:#FE586B;
 }
+
