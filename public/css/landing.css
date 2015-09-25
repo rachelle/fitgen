@@ -254,3 +254,13 @@ h2  {
   margin-top: 30px;
 }
 
+.edit-container {
+  width: 550px;
+  margin-left: 450px;
+}
+
+.reg {
+  background-color: #00AA99;
+  color: white;
+  height: 40px;
+}
