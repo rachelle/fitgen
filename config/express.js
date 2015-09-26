@@ -54,6 +54,9 @@ module.expots = function() {
 
   app.use(express.static('./public'));
 
+  require('./socketio')(server, io, mongoStore); // completes the socketio  configuration
+  // executes the socketio configuration method for the session setting
+  
   return server; // return a new server object
 
 };
