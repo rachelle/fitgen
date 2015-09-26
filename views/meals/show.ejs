@@ -37,9 +37,10 @@
     <li class="collection-item">Meal: <%=  meal.meal_name %> </li>
     <li class="collection-item">Drink: <%= meal.drink_name %></li>
     <li class="collection-item">Snack: <%= meal.snack_name %></li>
-    <li class="collection-item">Alvin</li>
+    <li class="collection-item"><button class="edit-button"><a class="user-button" href="/meals/<%= meal._id %>/edit">Edit Meal</a></button></li>
   </ul>
 </div>
+
 
 <div class="clear-fix"></div>
 <!-- footer content -->

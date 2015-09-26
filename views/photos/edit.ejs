@@ -36,7 +36,7 @@
   <h4>Edit Photo</h4>
     <div class="row">
       <div class="col s12"> 
-        <form action="/photos" method="post">
+        <form action="/photos/<%= photo._id %>?_method=PUT" method="post">
           <img class="activator" style="width:400px; height: 400px" src="<%= photo.image %>"> 
           <input type="text" placeholder="caption" name="caption"/>
           <input type="text" placeholder="progress url" name="image" class="file" type="text"/>
