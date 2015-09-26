@@ -3,12 +3,14 @@
 <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <title>Era</title> 
-  <!-- CSS -->
+  <!-- Materliaze CSS -->
   <link rel="stylesheet" type="text/css" href="css/search.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
   <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/css/landing.css">
   <!-- scripts -->
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="../js/register.js"></script>
@@ -19,7 +21,7 @@
   <div class="nav-wrapper blue-grey lightnen-1">
     <a href="#" class="brand-logo logoname">Era</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a class="prog-links" href="/users/<%= user.id %>">Home</a></li>
+      <li><a href="/users/<%= user.id %>">Home</a></li>
       <li><a href="/users">Search</a></li>
       <li><a href="/photos">Photos</a></li>
       <li><a class="navlinks" href="/logout">Signout</a></li>
@@ -28,7 +30,7 @@
 </nav> 
 <!-- all user show page  -->
 <div class="content">
-  <h3 class='center-align'>Users</h3> 
+  <h3 class='index-text center-align'>Users</h3> 
   <ul class='feed'>
     <% users.forEach(function(user) { %>
       <li class="user-links">

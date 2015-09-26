@@ -100,7 +100,7 @@ var userUpdate = function(req, res, next) {
 };
 
 /* user has the option to delete their account */
-var userDelete = function(req,res){
+var userDelete = function(req, res){
   var id = req.params.id;
 
   User.findByAndRemove({_id: id}, function(error){

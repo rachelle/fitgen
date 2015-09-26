@@ -60,6 +60,30 @@ app.locals.title = 'fitgen';
 
 app.use('/', routes);
 
+/* user tasks */
+app.get('/tasks', tasks.list); 
+app.post('/tasks', tasks.markAllCompleted); 
+app.post('/tasks', tasks.add); 
+app.post('/tasks/:task_id', tasks.markCompleted); 
+app.del('tasks/:task_id', tasks.del); 
+app.get('/tasks/completed', tasks.completed);
+
+
+app.use(function(req, res, next) {
+  req.db = {}; 
+  req.db.tasks = db.collection('tasks'); 
+  next(); 
+})
+
+app.param('task_id', function(req, res, next, taskID) {
+  req.db.tasks.findById(taskId, function(error, task) {
+    if (error) return next(error); 
+    if (!task) return next(new Error('Task is not found.')); 
+    req.task = task; 
+    return next(); 
+  });
+}); 
+
 var User = require('./models/User');
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
