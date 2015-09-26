@@ -14,12 +14,12 @@ var UsersController        = require('../controllers/Users');
 var PhotosController       = require('../controllers/Photos');
 var ExercisesController    = require('../controllers/Exercises');
 var MealsController        = require('../controllers/Meals');
+var TasksController        = require('../controllers/Tasks');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
 });
-
 
 /* checks if the user is logged in */
 var isLoggedIn = function(req, res, next) {
@@ -37,6 +37,14 @@ router.post('/login',   passport.authenticate(
       failureRedirect: '/login'
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
+
+
+/* user tasks */
+router.get('/tasks',            isLoggedIn, TasksController.list); 
+router.post('/tasks',           isLoggedIn, TasksController.markAllCompleted); 
+router.post('/tasks',           isLoggedIn, TasksController.add); 
+router.post('/tasks/:task_id',  isLoggedIn, TasksController.markCompleted); 
+router.delete('tasks/:task_id', isLoggedIn, TasksController.deleteTask); 
 
 /* renders meals controller */
 router.get('/meals',          isLoggedIn, MealsController.renderMealsIndex);

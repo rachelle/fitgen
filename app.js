@@ -23,6 +23,7 @@ var User      = require('./models/User');
 var Photo     = require('./models/Photo');
 var Exercise  = require('./models/Exercise');
 var Meal      = require('./models/Meal');
+var Task      = require('./models/Task');
 
 //||||||||||||||||||||||||||--
 // CREATE MONGO DB
@@ -47,6 +48,16 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.listen(process.env.PORT || 3000);
 
+/* connecting tasks controller */
+app.param('task_id', function(req, res, next, taskId) {
+  req.db.tasks.findById(taskId, function(error, task) {
+    if (error) return next(error); 
+    if (!task) return next(new Error('Task is not found.')); 
+    req.task = task; 
+    return next(); 
+  });
+});
+
 /* authorized middleware */
 app.use(require('express-session')({
     secret: 'aesthetic only',
@@ -59,30 +70,6 @@ app.use(passport.session());
 app.locals.title = 'fitgen';
 
 app.use('/', routes);
-
-/* user tasks */
-app.get('/tasks', tasks.list); 
-app.post('/tasks', tasks.markAllCompleted); 
-app.post('/tasks', tasks.add); 
-app.post('/tasks/:task_id', tasks.markCompleted); 
-app.del('tasks/:task_id', tasks.del); 
-app.get('/tasks/completed', tasks.completed);
-
-
-app.use(function(req, res, next) {
-  req.db = {}; 
-  req.db.tasks = db.collection('tasks'); 
-  next(); 
-})
-
-app.param('task_id', function(req, res, next, taskID) {
-  req.db.tasks.findById(taskId, function(error, task) {
-    if (error) return next(error); 
-    if (!task) return next(new Error('Task is not found.')); 
-    req.task = task; 
-    return next(); 
-  });
-}); 
 
 var User = require('./models/User');
 passport.use(new LocalStrategy(User.authenticate()));

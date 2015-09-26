@@ -7,6 +7,7 @@ var Photo     = require('./Photo');
 var Exercise  = require('./Exercise');
 var User      = require('./User');
 var Meal      = require('./Meal');
+var Task      = require('./Task');
 
 /* Define Plan Schema */
 var User = new mongoose.Schema({
@@ -34,6 +35,11 @@ var User = new mongoose.Schema({
   meals: [{
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Meal'
+  }], 
+
+  tasks: [{
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Task'
   }]
 
 });
