@@ -17,7 +17,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy; 
 var routes = require('./routes/index');
 
-var app = express();
+var app = express(db);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
