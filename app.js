@@ -3,10 +3,12 @@ var express = require('express');
 var http = require('http');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var MongoStore = require('connect-mongo')(session);
 var methodOverride = require('method-override');
-
+ 
 var mongoose = require('mongoose');
 var passport = require('passport'); 
 var LocalStrategy = require('passport-local').Strategy; 
