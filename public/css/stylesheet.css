@@ -1,32 +1,17 @@
 /*------------- Reset browser differences ------------- */
-
-
-
 * {
   padding: 0;
   margin: 0;
 }
-
-
 /* ------------ Body styles ------------ */
-
-
 body {
   background-color: #f0f1f3;
   color:#667073;
   font: 16px/1.3 'Arial',sans-serif;
 }
-
-
-
-
 /* ------------ Header styles ------------ */
 
-
-
 /* ------ Home ------ */
-
-
 .homebanner {
   height: 120px;
   background-color: #3c4446;
@@ -50,8 +35,6 @@ body {
 #logo:visited {
   color: white;
 }
-
-
 
 /* ------ Invite ------ */
 

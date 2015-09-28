@@ -19,7 +19,7 @@ var routes = require('./routes/index');
 
 var app = express();
 
-var io = require('socket.io').listen(app.listen(port));
+var io = require('socket.io');
 
 require('./config')(app, io); 
 require('./config')(app, io); 
