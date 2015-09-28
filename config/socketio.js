@@ -10,25 +10,26 @@ module.exports = function(server, io, mongoStore) {
 function(err) {
     var sessionId = socket.request.signedCookies['connect.sid']; 
     
-    mongoStore.get(sessionId, function(err, session) {
-      socket.request.session = session; 
+      mongoStore.get(sessionId, function(err, session) {
+        socket.request.session = session; 
 
-      passport.initialize() (socket.request, {}, function() { 
-      // populate the session's user object according to the session information
-        passport.session() (socket.request, {}, function() {
-          if (socket.request.user) { // if user is authenticated
-            next(null, true); // connection will open 
-          } else { 
-            next(new Error('User is not authenticated'), false); // no connection if false
-          }
-        })
+        passport.initialize() (socket.request, {}, function() { 
+        // populate the session's user object according to the session information
+          passport.session() (socket.request, {}, function() {
+            if (socket.request.user) { // if user is authenticated
+              next(null, true); // connection will open 
+            } else { 
+              next(new Error('User is not authenticated'), false); // no connection if false
+            }
+          })
+        });
       });
     });
-  });
-}); 
+  }); 
   
-io.on('connection', function(socket) {
-
+  io.on('connection', function(socket) {
+    // configure the socket serverto include these handlers
+    require('../app/controllers/chat.server.controller')(io, socket);
   });
 
 };

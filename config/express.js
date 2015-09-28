@@ -11,7 +11,7 @@ var MonogoStore     = require('connect-mongo')(session);
 var flash           = require('flash'); 
 var passport        = require('passport');
 
-module.expots = function() {
+module.exports = function(db) {
   var app = express(); 
   var server = http.createServer(app); 
   var io = socketio.listen(server); // socketio module listen() method to listen to the server
@@ -56,7 +56,7 @@ module.expots = function() {
 
   require('./socketio')(server, io, mongoStore); // completes the socketio  configuration
   // executes the socketio configuration method for the session setting
-  
+
   return server; // return a new server object
 
 };
