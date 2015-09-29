@@ -17,7 +17,7 @@ var ExercisesController = require('../controllers/Exercises');
 var MealsController     = require('../controllers/Meals');
 var TasksController     = require('../controllers/Tasks');
 var ChatsController     = require('../controllers/Chats');    
-
+var CommentController   = require('../controllers/Comment');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
@@ -58,6 +58,8 @@ router.get('/chat/:id', function(req, res) {
 
 });
 
+router.get('/comments',   isLoggedIn, CommentsController.renderCommentsIndex);
+router.post('/comments',  isLoggedIn, CommentsController.renderCommentsCreate); 
 
 /* renders meals controller */
 router.get('/meals',          isLoggedIn, MealsController.renderMealsIndex);

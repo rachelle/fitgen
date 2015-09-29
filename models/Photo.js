@@ -15,11 +15,6 @@ var Photo = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User'
-    },
-
-    photo: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Photo'
     } 
 });
 
