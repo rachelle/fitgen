@@ -24,3 +24,11 @@ module.exports.renderCommentsCreate = function (req, res, next) {
     }); 
   }); 
 });
+
+
+module.exports.renderCommentsShow = function (req, res, next) {
+  Photo.findOne({_id: reqeust.params.photo_id}, function(error, photo) {
+    if (error) return response.send(error); 
+    response.send(photo.comments); 
+  });
+});

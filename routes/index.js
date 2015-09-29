@@ -59,8 +59,8 @@ router.get('/chat/:id', function(req, res) {
 
 });
 
-router.get('/comments',   isLoggedIn, CommentsController.renderCommentsIndex);
-router.post('/comments',  isLoggedIn, CommentsController.renderCommentsCreate); 
+router.get('/comments',       isLoggedIn, CommentsController.renderCommentsCreate);
+router.post('/comments/:id',  isLoggedIn, CommentsController.renderCommentsShow); 
 
 /* renders meals controller */
 router.get('/meals',          isLoggedIn, MealsController.renderMealsIndex);
