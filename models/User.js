@@ -40,6 +40,11 @@ var User = new mongoose.Schema({
   tasks: [{
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Task'
+  }], 
+
+  commments: [{
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User'
   }]
 
 });
