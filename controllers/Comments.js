@@ -19,16 +19,16 @@ module.exports.renderCommentsCreate = function (req, res, next) {
     photo.save(function(error) {
       if(error) return response.send(error); 
       response.send({
-        success: true
+      success: true
       });
     }); 
   }); 
-});
+};
 
 
 module.exports.renderCommentsShow = function (req, res, next) {
-  Photo.findOne({_id: reqeust.params.photo_id}, function(error, photo) {
+  Photo.findOne({_id: request.params.photo_id}, function(error, photo) {
     if (error) return response.send(error); 
     response.send(photo.comments); 
   });
-});
+};

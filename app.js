@@ -1,7 +1,4 @@
-require('dotenv').load();
-var config = require('config');
 var http = require('http');
-var socketio = require('socket.io');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -19,9 +16,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 
 var app = express();
-
-var io = require('socket.io')();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

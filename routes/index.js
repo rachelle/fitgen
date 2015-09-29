@@ -16,7 +16,6 @@ var PhotosController      = require('../controllers/Photos');
 var ExercisesController   = require('../controllers/Exercises');
 var MealsController       = require('../controllers/Meals');
 var TasksController       = require('../controllers/Tasks');
-var ChatsController       = require('../controllers/Chats');    
 var CommentsController    = require('../controllers/Comments');
 
 /* GET home page. */
@@ -88,6 +87,30 @@ router.get('/photos/:id/edit',   isLoggedIn, PhotosController.renderPhotosEdit);
 router.put('/photos/:id',        isLoggedIn, PhotosController.renderPhotosUpdate); 
 router.get('/photos/:id',        isLoggedIn, PhotosController.renderPhotosShow); 
 router.delete('/photos/:id',     isLoggedIn, PhotosController.deletePhoto);
+
+/* renders comments controller */
+/* posting a new comment onto photo */
+router.post('/photos/:photo_id/comments', function(req, res, next) {
+  Photo.findOne({_id: req.params.photo_id}, function(error, photo) {
+    if (error) return res.send(error); 
+    photo.comments.push({
+      content: req.body.content, 
+      user:    req.body.user
+    }); 
+    photo.save(function(error) {
+      if(error) return res.send(error); 
+    }); 
+  }); 
+}); 
+
+
+/* showing all comments on the photo */
+router.get('/photos/:photo_id/comments', function(req, res, next) {
+  Photo.findOne({_id: req.params.photo_id}, function(error, photo){ 
+    if (error) return res.send(error); 
+    res.send(photo.comments); 
+  });
+});
 
 /* renders user controller */
 router.get('/auth/register',              UsersController.usersNew);

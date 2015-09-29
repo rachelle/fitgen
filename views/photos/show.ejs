@@ -41,17 +41,29 @@
 <!-- comment form  -->
 <div class="add-comment"> 
   <form method="post" action="/create"> 
-    <input type="text" class="content-text" name="content"/>
-    <span>Comment</span>
-    <textarea name="comment"> </textarea> <input class="edit-button" type="submit" value="Save"> 
+   
+    <span class='comment-text'>Comment</span>
+    <textarea type="text" name="comment"></textarea>  <input class="edit-button" type="submit" value="Save"> 
   </form>
 </div>
 
-<div class="comment"> 
-<%= each comment in photo.comments %> 
-<%= comment.content %> 
+<div class="photo-comments"> 
+  <!-- photo comment content -->
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="card-panel grey lighten-5 z-depth-1">
+      <div class="row valign-wrapper">
+        <div class="col s2">
+          <img src="/images/katy-avatar.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+        </div>
+        <div class="col s10">
+          <span class="black-text">
+            This is a square image. Add the "circle" class to it to make it appear circular.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<% }); %> 
 <!-- footer content -->
 <footer class="page-footer blue-grey darken-4">
   <div class="container">
