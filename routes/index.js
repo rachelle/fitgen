@@ -1,6 +1,7 @@
-var express        = require('express');
-var router         = express.Router();
-
+var express  = require('express');
+var router   = express.Router();
+var gravatar = require('gravatar'); 
+  
 /* passport middleware will add authenticated users */
 var passport       = require('passport'); 
 var methodOverride = require('method-override');
@@ -9,12 +10,13 @@ var methodOverride = require('method-override');
 var User = require('../models/User');
 
 /* Required controllers */
-var SessionsController     = require('../controllers/Sessions');
-var UsersController        = require('../controllers/Users');
-var PhotosController       = require('../controllers/Photos');
-var ExercisesController    = require('../controllers/Exercises');
-var MealsController        = require('../controllers/Meals');
-var TasksController        = require('../controllers/Tasks');
+var SessionsController  = require('../controllers/Sessions');
+var UsersController     = require('../controllers/Users');
+var PhotosController    = require('../controllers/Photos');
+var ExercisesController = require('../controllers/Exercises');
+var MealsController     = require('../controllers/Meals');
+var TasksController     = require('../controllers/Tasks');
+var ChatsController     = require('../controllers/Chats');    
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -38,13 +40,24 @@ router.post('/login',   passport.authenticate(
     }),                SessionsController.sessionsCreate);
 router.get('/logout',  SessionsController.sessionsDelete);
 
+/* chatroom homepage */
+router.get('/home', function(req, res, next) {
+  res.render('home', { user: req.user }); 
 
-/* user tasks */
-router.get('/tasks',            isLoggedIn, TasksController.list); 
-router.post('/tasks',           isLoggedIn, TasksController.markAllCompleted); 
-router.post('/tasks',           isLoggedIn, TasksController.add); 
-router.post('/tasks/:task_id',  isLoggedIn, TasksController.markCompleted); 
-router.delete('tasks/:task_id', isLoggedIn, TasksController.deleteTask); 
+});
+
+router.get('/create', function(req, res) {
+
+    var id = Math.round((Math.random() * 1000000));
+  
+    res.redirect('/chat/'+ id); 
+});
+
+router.get('/chat/:id', function(req, res) {
+  res.render('chat'); 
+
+});
+
 
 /* renders meals controller */
 router.get('/meals',          isLoggedIn, MealsController.renderMealsIndex);

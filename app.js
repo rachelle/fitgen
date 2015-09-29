@@ -1,3 +1,4 @@
+require('dotenv').load();
 var config = require('config');
 var http = require('http');
 var socketio = require('socket.io');
@@ -18,6 +19,13 @@ var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 
 var app = express();
+<<<<<<< HEAD
+=======
+var io = require('socket.io')();
+
+require('./config')(app, io); 
+require('./routes')(app, io); 
+>>>>>>> de68a5b059bca0c2f0b291f04503e2bef9d38f89
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,6 +51,7 @@ var Photo     = require('./models/Photo');
 var Exercise  = require('./models/Exercise');
 var Meal      = require('./models/Meal');
 var Task      = require('./models/Task');
+var Comment   = require('./models/Comment');
 
 //||||||||||||||||||||||||||--
 // CREATE MONGO DB
