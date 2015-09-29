@@ -18,6 +18,7 @@ var MealsController       = require('../controllers/Meals');
 var TasksController       = require('../controllers/Tasks');
 var ChatsController       = require('../controllers/Chats');    
 var CommentsController    = require('../controllers/Comments');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });

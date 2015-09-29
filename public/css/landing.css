@@ -221,6 +221,7 @@ h2  {
 .edit-button {
   background-color: #00AA99;
   height: 45px;
+  color: white;
   margin-top: 10px;
 }
 
@@ -282,4 +283,10 @@ h2  {
 
 .index-text {
   color: #00AA99;
+}
+
+.add-comment {
+  width: 400px;
+  text-align: center;
+  margin-left: 520px;
 }
