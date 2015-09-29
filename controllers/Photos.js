@@ -32,6 +32,7 @@ module.exports.renderPhotosCreate = function(req, res, next) {
     caption: req.body.caption, 
     image  : req.body.image, 
     url    : req.body.url,
+    comment: req.body.comment, 
     user_id: req.user.id
   }); 
   console.log(req.body); 
@@ -62,6 +63,7 @@ module.exports.renderPhotosUpdate = function(req, res, next) {
 
   Photo.findById({_id:id}, function(error, photo){
     if(error) res.send(error); 
+      if (req.body.comment) photo.comment = req.body.comment;
       if (req.body.url)     photo.url     = req.body.url; 
       if (req.body.image)   photo.image   = req.body.image; 
       if (req.body.caption) photo.caption = req.body.caption;
