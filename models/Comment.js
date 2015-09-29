@@ -7,8 +7,8 @@ var Photo   = require('./Photo');
 var Comment = require('./Comment'); 
 
 /* Defining Comment Schema */
-var Comment = mongoose.model('Comment', CommentSchema); 
-    content: String, 
+var Comment = new mongoose.Schema({
+    content: String,
     created: Date, 
     user: {
       type: mongoose.Schema.Types.ObjectId, 

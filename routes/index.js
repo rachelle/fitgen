@@ -10,14 +10,14 @@ var methodOverride = require('method-override');
 var User = require('../models/User');
 
 /* Required controllers */
-var SessionsController  = require('../controllers/Sessions');
-var UsersController     = require('../controllers/Users');
-var PhotosController    = require('../controllers/Photos');
-var ExercisesController = require('../controllers/Exercises');
-var MealsController     = require('../controllers/Meals');
-var TasksController     = require('../controllers/Tasks');
-var ChatsController     = require('../controllers/Chats');    
-var CommentController   = require('../controllers/Comment');
+var SessionsController    = require('../controllers/Sessions');
+var UsersController       = require('../controllers/Users');
+var PhotosController      = require('../controllers/Photos');
+var ExercisesController   = require('../controllers/Exercises');
+var MealsController       = require('../controllers/Meals');
+var TasksController       = require('../controllers/Tasks');
+var ChatsController       = require('../controllers/Chats');    
+var CommentsController    = require('../controllers/Comments');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });

@@ -19,13 +19,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 
 var app = express();
-<<<<<<< HEAD
-=======
+
 var io = require('socket.io')();
 
-require('./config')(app, io); 
-require('./routes')(app, io); 
->>>>>>> de68a5b059bca0c2f0b291f04503e2bef9d38f89
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
