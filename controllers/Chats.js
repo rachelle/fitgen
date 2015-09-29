@@ -1,4 +1,5 @@
 var gravatar = require('gravatar');
+var io = require('socket.io');
 
 // Export a function, so that we can pass 
 // the app and io instances from the app.js file:
@@ -150,4 +151,4 @@ function findClientsSocket(io,roomId, namespace) {
   return res;
 }
 
-
+module.exports = io;

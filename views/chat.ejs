@@ -1,31 +1,16 @@
 <!DOCTYPE html>
-
-<!--
-  This file is rendered by express.js, when the rurl /chat/123456 is visited in a browser.
-  It includes jQuery, socket.io.js (it is automatically served by the socket.io library), 
-  and a few more JavaScript files that you should check out.
--->
-
 <html>
 
 <head>
-
-  <title>Private chat room | Tutorialzine Demo</title>
-
   <link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
   <link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
-
-
 </head>
 
 <body>
-
   <header class="banner">
-
     <h1 class="bannertext">
-      <a href="http://tutorialzine.com/2014/03/nodejs-private-webchat/" id="logo">Tutorial<span>zine</span>: NODE.JS CHAT TUTORIAL</a>
+     <span>FitGeneration</span>
     </h1>
-
   </header>
 
 
@@ -100,7 +85,7 @@
 
     <div class="nomessages">
 
-      <img src="../img/unnamed.jpg" id="noMessagesImage" />
+     
 
       <div class="info">
         <h2>You are chatting with <span class="nickname-chat"></span>.</h2>
@@ -129,12 +114,38 @@
     </form>
 
   </footer>
+  <!-- footer content -->
+<footer class="page-footer blue-grey darken-4">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">FitGeneration</h5>
+        <p class="grey-text text-lighten-4">Improve all aspects in your life.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Era © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+  </div>
+</footer>
+
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="../js/moment.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="../js/chat.js"></script>
+  <script src="socket.io/socket.io.js"> </script>
+  <script src="/../js/chat.js"></script>
 
 </body>
-
 </html>
