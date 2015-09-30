@@ -9,22 +9,26 @@ var User    = require('../models/User');
 var router = express.Router(); 
 
 
-
-module.exports.renderCommentsIndex = function ( req, res ){
-  Comment.find( function ( err, comments, count ){
-    res.render( 'index', {
-        title : 'Comment System with Mongoose and Node',
-        comments : comments
+module.exports.renderCommentsCreate = function (req, res, next) { 
+  Photo.findOne({_id: request.params.photo_id}, function(error, photo) {
+    if(error) return response.send(error); 
+    photo.comments.push({
+      content: request.body.content, 
+      user:    request.body.user
     });
-  });
-}; 
+    photo.save(function(error) {
+      if(error) return response.send(error); 
+      response.send({
+      success: true
+      });
+    }); 
+  }); 
+};
 
-module.exports.renderCommentsCreate = function ( req, res ){
-  new Comment({
-    username : req.body.username,
-    content : req.body.comment,
-    created : Date.now()
-  }).save( function( err, comment, count ){
-    res.redirect( '/' );
+
+module.exports.renderCommentsShow = function (req, res, next) {
+  Photo.findOne({_id: request.params.photo_id}, function(error, photo) {
+    if (error) return response.send(error); 
+    response.send(photo.comments); 
   });
 };

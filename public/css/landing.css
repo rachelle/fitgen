@@ -207,12 +207,12 @@ h2  {
 .action-button {
   background-color: #71C924;
   width: 160px;
-  height: 40px;
+  height: 36px;
 }
 
 .user-button {
   color: white;  
-  font-weight: 60;
+  font-weight: 55;
   font-size: 15px;
   font-family: ‘Arial Narrow’, sans-serif;
   text-shadow: 0 0 0.063em #7a7a7a;
@@ -221,6 +221,8 @@ h2  {
 .edit-button {
   background-color: #00AA99;
   height: 45px;
+  color: white;
+  width: 100px;
   margin-top: 10px;
 }
 
@@ -284,15 +286,29 @@ h2  {
   color: #00AA99;
 }
 
+<<<<<<< HEAD
 .comment-box {
+=======
+.add-comment {
+  width: 400px;
+  text-align: center;
+  margin-left: 520px;
+  margin-top: 20px;
+}
+
+.photo-comments {
+>>>>>>> 220836aac04be374d4c9747a7cca53693ec7ea29
   width: 400px;
   margin-left: 520px;
   margin-top: 20px;
 }
 
+<<<<<<< HEAD
 .add-button {
   margin-left: 660px;
   background-color: #EE6E73;
   color: white;
   height: 34px;
 }
+=======
+>>>>>>> 220836aac04be374d4c9747a7cca53693ec7ea29
