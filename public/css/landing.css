@@ -283,3 +283,16 @@ h2  {
 .index-text {
   color: #00AA99;
 }
+
+.comment-box {
+  width: 400px;
+  margin-left: 520px;
+  margin-top: 20px;
+}
+
+.add-button {
+  margin-left: 660px;
+  background-color: #EE6E73;
+  color: white;
+  height: 34px;
+}

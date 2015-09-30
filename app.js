@@ -1,7 +1,4 @@
-require('dotenv').load();
-var config = require('config');
 var http = require('http');
-var socketio = require('socket.io');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
