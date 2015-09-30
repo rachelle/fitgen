@@ -286,9 +286,7 @@ h2  {
   color: #00AA99;
 }
 
-<<<<<<< HEAD
-.comment-box {
-=======
+
 .add-comment {
   width: 400px;
   text-align: center;
@@ -297,13 +295,12 @@ h2  {
 }
 
 .photo-comments {
->>>>>>> 220836aac04be374d4c9747a7cca53693ec7ea29
   width: 400px;
   margin-left: 520px;
   margin-top: 20px;
 }
 
-<<<<<<< HEAD
+
 .add-button {
   margin-left: 660px;
   background-color: #EE6E73;
