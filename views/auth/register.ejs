@@ -10,9 +10,11 @@
 <body>
   <div class = "image overlay">
     <h1 id="site-title">Sign up.</h1>
-    <div class="tagline">Thanks for visiting — Enter your details and we'll notify you on launch day!</div>
+    <div class="tagline">
+      Thanks for visiting — Enter your details and we'll notify you on launch day!
+    </div>
     <!--Log in Form-->
-      <div id="login">
+    <div id="login">
       <form action="/auth/register" method="post">
         <input type="text" placeholder="email" name="email" />
         <br/>
@@ -23,20 +25,19 @@
         <label class="grey lighten-2"></label>
         <select name="status" class="browser-default status-option ">
           <option name="status" value="status" disabled selected>select fitness status</option>
-          <option name='status'value="1">bulking</option>
-          <option name="status" value="2">maintaing</option>
-          <option name="status" value="2">toning</option>
-          <option name="status" value="2">muscle gaining</option>
-          <option name="status" value="3">shredding</option>
+          <option name='status'value="bulking">bulking</option>
+          <option name="status" value="maintaing">maintaing</option>
+          <option name="status" value="toning">toning</option>
+          <option name="status" value="muscle gaining">muscle gaining</option>
+          <option name="status" value="shredding">shredding</option>
         </select>
         <br/>
         <input type="text" placeholder="password" name="password"/>
         <div class="center-align">
         <input class="reg" type="submit" value="Register"/ >
-    </form>
-        </div>
-     </div>
+      </form>
     </div>
-
+  </div>
+</div>
 </body> 
 </html>
